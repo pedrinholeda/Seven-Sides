@@ -7,7 +7,9 @@
 //
 
 import Foundation
+import SpriteKit
 
+//Sides and ball information
 enum colorType {
     case Red
     case Orange
@@ -18,7 +20,7 @@ enum colorType {
     case Green
 }
 
-let colorWhellOrder: [colorType] = [
+let colorWheelOrder: [colorType] = [
 .Red,     //0
 .Orange,  //1
 .Yellow,  //2
@@ -27,3 +29,12 @@ let colorWhellOrder: [colorType] = [
 .Purple,  //5
 .Pink     //6
 ]
+
+var sidePositions:[CGPoint] = []
+
+// game state
+
+enum gameState {
+    case beforeGame
+    case inGame
+}
