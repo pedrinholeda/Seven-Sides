@@ -38,7 +38,7 @@ class Ball: SKSpriteNode{
         let randomSideIndex = Int(arc4random()%7)
         let sideToMoveTo = sidePositions[randomSideIndex]
         
-        let moveToSide = SKAction.move(to: sideToMoveTo, duration: 2)
+        let moveToSide = SKAction.move(to: sideToMoveTo, duration: ballMovementSpeed)
         
         let ballSpawnSequence = SKAction.sequence([scaleIn, moveToSide])
         
@@ -59,5 +59,19 @@ class Ball: SKSpriteNode{
         let deleteSequence = SKAction.sequence([scaleDown,deleteBall])
         self.run(deleteSequence)
     }
+    
+    func flash(){
+        self.removeAllActions()
+        self.isActive = false
+        
+        let fadeOut = SKAction.fadeOut(withDuration: 0.4)
+        let fadeIn = SKAction.fadeIn(withDuration: 0.4)
+        
+        let flashSequence = SKAction.sequence([fadeOut,fadeIn])
+        let repeatFlash = SKAction.repeat(flashSequence, count: 3)
+        self.run(repeatFlash)
+        
+    }
+    
     
 }

@@ -29,6 +29,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var highScore = UserDefaults.standard.integer(forKey: "highScoreSaved")
     
     let playCorrectSound = SKAction.playSoundFileNamed("correctSound.wav", waitForCompletion: false)
+    let playInorrectSound = SKAction.playSoundFileNamed("incorrectSound.wav", waitForCompletion: false)
+
 
     
     override func didMove(to view: SKView) {
@@ -59,7 +61,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         develName.text = "Developed by: Pedro Léda"
         develName.fontSize = 40
         develName.fontColor = SKColor.darkGray
-        develName.position = CGPoint(x: self.size.width/2, y: self.size.height*0.5)
+        develName.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
         self.addChild(develName)
         
         
@@ -149,7 +151,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if ball.type == side.type{
             correctMatch(ball: ball)
            print("acertou")
-        }else {wrongMatch()
+        }else {
+            wrongMatch(ball:ball)
             print("errou")
         }
         
@@ -157,7 +160,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func correctMatch(ball: Ball){
         ball.delete()
-        spawnBall()
         
         score += 1
         scoreLabel.text = "\(score)"
@@ -166,14 +168,29 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             highScoreLabel.text = "Best: \(score)"
         }
         
+        switch score {
+        case 5: ballMovementSpeed = 1.8
+        case 10: ballMovementSpeed = 1.6
+        case 15: ballMovementSpeed = 1.5
+        case 20: ballMovementSpeed = 1.4
+        case 30: ballMovementSpeed = 1.3
+        case 40: ballMovementSpeed = 1.2
+        case 50: ballMovementSpeed = 1.1
+        case 60: ballMovementSpeed = 1.0
+        default:
+            print("")
+        }
+        spawnBall()
         self.run(playCorrectSound)
     }
     
-    func wrongMatch(){
+    func wrongMatch(ball:Ball){
         if score > highScore{
             highScore = score
             UserDefaults.standard.set(highScore, forKey: "highScoreSaved")
         }
+        ball.flash()
+        self.run(playInorrectSound)
     }
   
 }

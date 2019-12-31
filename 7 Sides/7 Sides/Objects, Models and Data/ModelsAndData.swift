@@ -51,3 +51,5 @@ struct PhysicsCategories {
 var score: Int = 0
 
 //level system
+
+var ballMovementSpeed: TimeInterval = 2
