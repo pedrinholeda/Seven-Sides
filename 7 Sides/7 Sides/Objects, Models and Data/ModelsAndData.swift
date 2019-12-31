@@ -45,3 +45,7 @@ struct PhysicsCategories {
     static let Ball: UInt32 = 0b1 //1
     static let Side: UInt32 = 0b10 //2
 }
+
+// Score System
+
+var score: Int = 0

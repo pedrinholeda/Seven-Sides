@@ -20,6 +20,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     //1 = está no jogo
     
     let tapToStartLabel = SKLabelNode(fontNamed: "Caviar Dreams")
+    let scoreLabel = SKLabelNode(fontNamed: "Caviar Dreams")
     
     override func didMove(to view: SKView) {
 
@@ -45,6 +46,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         tapToStartLabel.position = CGPoint(x: self.size.width/2, y: self.size.height*0.1)
         self.addChild(tapToStartLabel)
         
+        scoreLabel.text = "0"
+        scoreLabel.fontColor = SKColor.darkGray
+        scoreLabel.position = CGPoint(x: self.size.width/2, y: self.size.height*0.85)
+        scoreLabel.fontSize = 225
+        self.addChild(scoreLabel)
     }
     
     func prepColorWheel(){
@@ -109,11 +115,28 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             side = contact.bodyA.node! as! Side
         }
         if ball.isActive == true{
-        ball.delete()
-        spawnBall()
-            
+        checkMatch(ball: ball, side: side)
         }
         
+    }
+    
+    func checkMatch (ball: Ball, side: Side){
+        
+        if ball.type == side.type{
+            correctMatch(ball: ball)
+           print("acertou")
+        }else {
+            print("errou")
+        }
+        
+    }
+    
+    func correctMatch(ball: Ball){
+        ball.delete()
+        spawnBall()
+        
+        score += 1
+        scoreLabel.text = "\(score)"
     }
   
 }

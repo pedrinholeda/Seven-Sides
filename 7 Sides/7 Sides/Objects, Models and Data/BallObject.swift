@@ -51,7 +51,8 @@ class Ball: SKSpriteNode{
  
     func delete(){
         
-        isActive = false
+        self.isActive = false
+        self.removeAllActions()
         
         let scaleDown = SKAction.scale(by: 0, duration: 0.2)
         let deleteBall = SKAction.removeFromParent()
