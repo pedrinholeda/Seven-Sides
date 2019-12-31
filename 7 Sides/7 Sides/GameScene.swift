@@ -9,7 +9,7 @@
 import SpriteKit
 import GameplayKit
 
-class GameScene: SKScene {
+class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var colorWheelBase = SKShapeNode()
     
@@ -22,6 +22,9 @@ class GameScene: SKScene {
     let tapToStartLabel = SKLabelNode(fontNamed: "Caviar Dreams")
     
     override func didMove(to view: SKView) {
+
+        self.physicsWorld.contactDelegate = self
+
         let background = SKSpriteNode(imageNamed: "gameBackground")
         background.size = self.size
         background.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
@@ -89,6 +92,26 @@ class GameScene: SKScene {
         }
        else if currentGameState == .inGame{
             colorWheelBase.run(spinColorWheel)
+        }
+        
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        
+        let ball: Ball
+        let side: Side
+        
+        if contact.bodyA.categoryBitMask == PhysicsCategories.Ball{
+            ball = contact.bodyA.node! as! Ball
+            side = contact.bodyB.node! as! Side
+        } else{
+            ball = contact.bodyB.node! as! Ball
+            side = contact.bodyA.node! as! Side
+        }
+        if ball.isActive == true{
+        ball.delete()
+        spawnBall()
+            
         }
         
     }

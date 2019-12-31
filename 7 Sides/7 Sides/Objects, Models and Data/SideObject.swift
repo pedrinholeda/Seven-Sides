@@ -19,6 +19,12 @@ class Side: SKSpriteNode{
         let sideTexture = SKTexture(imageNamed: "side_\(self.type)")
         
         super.init(texture: sideTexture, color: SKColor.clear, size: sideTexture.size())
+        
+        self.physicsBody = SKPhysicsBody(rectangleOf: self.size)
+        self.physicsBody!.affectedByGravity = false
+        self.physicsBody!.categoryBitMask = PhysicsCategories.Side
+        self.physicsBody!.collisionBitMask = PhysicsCategories.None
+        self.physicsBody!.contactTestBitMask = PhysicsCategories.Ball
     }
     
     required init?(coder aDecoder: NSCoder) {
