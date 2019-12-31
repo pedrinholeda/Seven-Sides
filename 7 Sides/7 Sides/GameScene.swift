@@ -18,9 +18,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var currentGameState : gameState = gameState.beforeGame
     //0 = antes do jogo
     //1 = está no jogo
-    
     let tapToStartLabel = SKLabelNode(fontNamed: "Caviar Dreams")
+    
+    let develName = SKLabelNode(fontNamed: "Caviar Dreams")
+    
     let scoreLabel = SKLabelNode(fontNamed: "Caviar Dreams")
+    
+    let highScoreLabel = SKLabelNode(fontNamed: "Caviar Dreams")
+    
+    var highScore = UserDefaults.standard.integer(forKey: "highScoreSaved")
+    
+    let playCorrectSound = SKAction.playSoundFileNamed("correctSound.wav", waitForCompletion: false)
+
     
     override func didMove(to view: SKView) {
 
@@ -46,11 +55,25 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         tapToStartLabel.position = CGPoint(x: self.size.width/2, y: self.size.height*0.1)
         self.addChild(tapToStartLabel)
         
+        
+        develName.text = "Developed by: Pedro Léda"
+        develName.fontSize = 40
+        develName.fontColor = SKColor.darkGray
+        develName.position = CGPoint(x: self.size.width/2, y: self.size.height*0.5)
+        self.addChild(develName)
+        
+        
         scoreLabel.text = "0"
         scoreLabel.fontColor = SKColor.darkGray
         scoreLabel.position = CGPoint(x: self.size.width/2, y: self.size.height*0.85)
         scoreLabel.fontSize = 225
         self.addChild(scoreLabel)
+        
+        highScoreLabel.text = "Best: \(highScore)"
+        highScoreLabel.position = CGPoint(x: self.size.width/2, y: self.size.height*0.80)
+        highScoreLabel.fontSize = 100
+        highScoreLabel.fontColor = SKColor.darkGray
+        self.addChild(highScoreLabel)
     }
     
     func prepColorWheel(){
@@ -89,6 +112,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let deleteLabel = SKAction.removeFromParent()
         let deleteSequence = SKAction.sequence([scaleDown, deleteLabel])
         tapToStartLabel.run(deleteSequence)
+        develName.run(deleteSequence)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -125,7 +149,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if ball.type == side.type{
             correctMatch(ball: ball)
            print("acertou")
-        }else {
+        }else {wrongMatch()
             print("errou")
         }
         
@@ -137,6 +161,19 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         score += 1
         scoreLabel.text = "\(score)"
+        
+        if score > highScore{
+            highScoreLabel.text = "Best: \(score)"
+        }
+        
+        self.run(playCorrectSound)
+    }
+    
+    func wrongMatch(){
+        if score > highScore{
+            highScore = score
+            UserDefaults.standard.set(highScore, forKey: "highScoreSaved")
+        }
     }
   
 }

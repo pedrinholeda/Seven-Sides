@@ -18,6 +18,7 @@
 		E44C341623BA42E6001556E6 /* ModelsAndData.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44C341523BA42E6001556E6 /* ModelsAndData.swift */; };
 		E44C341823BA48AE001556E6 /* BallObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44C341723BA48AE001556E6 /* BallObject.swift */; };
 		E44C341B23BA6243001556E6 /* CaviarDreams.ttf in Resources */ = {isa = PBXBuildFile; fileRef = E44C341A23BA6243001556E6 /* CaviarDreams.ttf */; };
+		E44C341D23BBB1D0001556E6 /* correctSound.wav in Resources */ = {isa = PBXBuildFile; fileRef = E44C341C23BBB1D0001556E6 /* correctSound.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		E44C341523BA42E6001556E6 /* ModelsAndData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelsAndData.swift; sourceTree = "<group>"; };
 		E44C341723BA48AE001556E6 /* BallObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallObject.swift; sourceTree = "<group>"; };
 		E44C341A23BA6243001556E6 /* CaviarDreams.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = CaviarDreams.ttf; sourceTree = "<group>"; };
+		E44C341C23BBB1D0001556E6 /* correctSound.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = correctSound.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +74,7 @@
 				E44C340123BA2915001556E6 /* GameViewController.swift */,
 				E44C340323BA2915001556E6 /* Main.storyboard */,
 				E44C341A23BA6243001556E6 /* CaviarDreams.ttf */,
+				E44C341C23BBB1D0001556E6 /* correctSound.wav */,
 				E44C340623BA2918001556E6 /* Assets.xcassets */,
 				E44C341123BA3C14001556E6 /* UtilFuncs.swift */,
 				E44C340823BA2918001556E6 /* LaunchScreen.storyboard */,
@@ -151,6 +154,7 @@
 				E44C340523BA2915001556E6 /* Main.storyboard in Resources */,
 				E44C340723BA2918001556E6 /* Assets.xcassets in Resources */,
 				E44C341B23BA6243001556E6 /* CaviarDreams.ttf in Resources */,
+				E44C341D23BBB1D0001556E6 /* correctSound.wav in Resources */,
 				E44C340A23BA2918001556E6 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
