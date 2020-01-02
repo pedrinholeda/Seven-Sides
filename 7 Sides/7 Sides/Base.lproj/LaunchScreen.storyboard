@@ -1,10 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15400" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15404"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="CaviarDreams.ttf">
+            <string>CaviarDreams</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="EHf-IW-A2E">
@@ -13,13 +19,56 @@
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameBackground" translatesAutoresizingMaskIntoConstraints="NO" id="VXQ-r7-PN9">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gameOver" translatesAutoresizingMaskIntoConstraints="NO" id="zdP-F9-cIB">
+                                <rect key="frame" x="0.0" y="237" width="375" height="193"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="7 Sides" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0AX-w7-ytj">
+                                <rect key="frame" x="140" y="316" width="100" height="35"/>
+                                <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carregando ..." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UhV-0t-3ar">
+                                <rect key="frame" x="107" y="562" width="166" height="29"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="29" id="Z5G-7J-pPs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="CaviarDreams" family="Caviar Dreams" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="UhV-0t-3ar" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="107" id="0HU-9H-4wd"/>
+                            <constraint firstItem="UhV-0t-3ar" firstAttribute="centerX" secondItem="0AX-w7-ytj" secondAttribute="centerX" id="0PI-wk-aIE"/>
+                            <constraint firstItem="VXQ-r7-PN9" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="3xn-F4-5f9"/>
+                            <constraint firstItem="0AX-w7-ytj" firstAttribute="centerY" secondItem="VXQ-r7-PN9" secondAttribute="centerY" id="6m4-pT-TwM"/>
+                            <constraint firstItem="zdP-F9-cIB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="7Qu-bj-ryb"/>
+                            <constraint firstItem="zdP-F9-cIB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="D55-v7-6Bu"/>
+                            <constraint firstItem="zdP-F9-cIB" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="E6p-lu-fyi"/>
+                            <constraint firstItem="zdP-F9-cIB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="237" id="JHJ-Rw-GwK"/>
+                            <constraint firstItem="zdP-F9-cIB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="MGD-9P-CGF"/>
+                            <constraint firstItem="VXQ-r7-PN9" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="OrF-tO-NyD"/>
+                            <constraint firstItem="UhV-0t-3ar" firstAttribute="top" secondItem="zdP-F9-cIB" secondAttribute="bottom" constant="132" id="WFj-TV-gbe"/>
+                            <constraint firstItem="VXQ-r7-PN9" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="eh2-T2-Xr6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UhV-0t-3ar" secondAttribute="bottom" constant="76" id="fMc-Zc-Y57"/>
+                            <constraint firstItem="VXQ-r7-PN9" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="xTe-Uj-hUp"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52" y="374.66266866566718"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="gameBackground" width="1536" height="2048"/>
+        <image name="gameOver" width="600" height="522"/>
+    </resources>
 </document>
