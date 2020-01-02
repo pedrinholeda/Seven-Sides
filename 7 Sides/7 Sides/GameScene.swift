@@ -34,6 +34,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 
     
     override func didMove(to view: SKView) {
+        
+         score = 0
+         ballMovementSpeed = 2
 
         self.physicsWorld.contactDelegate = self
 
@@ -84,7 +87,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let side = Side(type: colorWheelOrder[i]) // barras de todas as coress
         let basePosition = CGPoint(x: self.size.width/2, y: self.size.height*0.25)
         side.position = convert(basePosition, to: colorWheelBase)
-            side.zRotation = -colorWheelBase.zRotation // para fechar as barras corretamente
+        side.zRotation = -colorWheelBase.zRotation // para fechar as barras corretamente
         colorWheelBase.addChild(side)
         
         colorWheelBase.zRotation += convertDegressToRadians(degress: 360/7)
@@ -95,7 +98,6 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             let sidePosition = side.position
             let positionInScene = convert(sidePosition, from: colorWheelBase)
             sidePositions.append(positionInScene)
-            
         }
 
     }
@@ -198,7 +200,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         let waitToChangeScene = SKAction.wait(forDuration: 3)
         let changeScene = SKAction.run{
-            let sceneToMoveTo = SKScene(fileNamed: "GameOverScene")!
+            let sceneToMoveTo = GameOverScene(fileNamed: "GameOverScene")!
             sceneToMoveTo.scaleMode = self.scaleMode
             let sceneTransition = SKTransition.fade(withDuration: 0.5)
             self.view!.presentScene(sceneToMoveTo, transition: sceneTransition)
