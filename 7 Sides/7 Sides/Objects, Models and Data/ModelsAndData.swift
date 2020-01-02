@@ -37,6 +37,7 @@ var sidePositions:[CGPoint] = []
 enum gameState {
     case beforeGame
     case inGame
+    case afterGame
 }
 // physics categories
 

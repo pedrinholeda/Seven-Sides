@@ -126,6 +126,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             colorWheelBase.run(spinColorWheel)
         }
         
+        
+        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -191,6 +193,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         ball.flash()
         self.run(playInorrectSound)
+        currentGameState = .afterGame
+        colorWheelBase.removeAllActions()
+        
+        let waitToChangeScene = SKAction.wait(forDuration: 3)
+        let changeScene = SKAction.run{
+            let sceneToMoveTo = SKScene(fileNamed: "GameOverScene")!
+            sceneToMoveTo.scaleMode = self.scaleMode
+            let sceneTransition = SKTransition.fade(withDuration: 0.5)
+            self.view!.presentScene(sceneToMoveTo, transition: sceneTransition)
+        }
+        let sceneChangeSequence = SKAction.sequence([waitToChangeScene, changeScene])
+        self.run(sceneChangeSequence)
     }
   
 }

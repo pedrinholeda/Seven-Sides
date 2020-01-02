@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E427C8E023BBC24D00EF34A0 /* GameOverScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E427C8DF23BBC24D00EF34A0 /* GameOverScene.sks */; };
+		E427C8E223BBC27600EF34A0 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E427C8E123BBC27600EF34A0 /* GameOverScene.swift */; };
 		E44C33FA23BA2915001556E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44C33F923BA2915001556E6 /* AppDelegate.swift */; };
 		E44C340023BA2915001556E6 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44C33FF23BA2915001556E6 /* GameScene.swift */; };
 		E44C340223BA2915001556E6 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E44C340123BA2915001556E6 /* GameViewController.swift */; };
@@ -23,6 +25,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E427C8DF23BBC24D00EF34A0 /* GameOverScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameOverScene.sks; sourceTree = "<group>"; };
+		E427C8E123BBC27600EF34A0 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		E44C33F623BA2915001556E6 /* 7 Sides.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "7 Sides.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E44C33F923BA2915001556E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E44C33FF23BA2915001556E6 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -82,6 +86,8 @@
 				E44C341123BA3C14001556E6 /* UtilFuncs.swift */,
 				E44C340823BA2918001556E6 /* LaunchScreen.storyboard */,
 				E44C340B23BA2918001556E6 /* Info.plist */,
+				E427C8DF23BBC24D00EF34A0 /* GameOverScene.sks */,
+				E427C8E123BBC27600EF34A0 /* GameOverScene.swift */,
 			);
 			path = "7 Sides";
 			sourceTree = "<group>";
@@ -159,6 +165,7 @@
 				E44C340723BA2918001556E6 /* Assets.xcassets in Resources */,
 				E44C341B23BA6243001556E6 /* CaviarDreams.ttf in Resources */,
 				E44C341D23BBB1D0001556E6 /* correctSound.wav in Resources */,
+				E427C8E023BBC24D00EF34A0 /* GameOverScene.sks in Resources */,
 				E44C340A23BA2918001556E6 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -172,6 +179,7 @@
 			files = (
 				E44C340023BA2915001556E6 /* GameScene.swift in Sources */,
 				E44C341823BA48AE001556E6 /* BallObject.swift in Sources */,
+				E427C8E223BBC27600EF34A0 /* GameOverScene.swift in Sources */,
 				E44C340223BA2915001556E6 /* GameViewController.swift in Sources */,
 				E44C341423BA4250001556E6 /* SideObject.swift in Sources */,
 				E44C33FA23BA2915001556E6 /* AppDelegate.swift in Sources */,
