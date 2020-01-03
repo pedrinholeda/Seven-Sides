@@ -13,7 +13,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var colorWheelBase = SKShapeNode()
     
-    let spinColorWheel = SKAction.rotate(byAngle: -convertDegressToRadians(degress: 360/7), duration: 0.2)
+    let spinColorWheelRotateRigth = SKAction.rotate(byAngle: -convertDegressToRadians(degress: 360/7), duration: 0.2)
+    let spinColorWheelRotateLeft = SKAction.rotate(byAngle: convertDegressToRadians(degress: 360/7), duration: 0.2)
     
     var currentGameState : gameState = gameState.beforeGame
     //0 = antes do jogo
@@ -125,11 +126,16 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             startTheGame()
         }
        else if currentGameState == .inGame{
-            colorWheelBase.run(spinColorWheel)
+          for touch : AnyObject in touches{
+           let pointITouched = touch.location(in: self)
+            if pointITouched.x < self.frame.size.width / 2 {
+               colorWheelBase.run(spinColorWheelRotateLeft)
+            } else {
+                colorWheelBase.run(spinColorWheelRotateRigth)
+            }
+            
+            }
         }
-        
-        
-        
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
@@ -154,10 +160,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if ball.type == side.type{
             correctMatch(ball: ball)
-           print("acertou")
+//           print("acertou")
         }else {
             wrongMatch(ball:ball)
-            print("errou")
+//            print("errou")
         }
         
     }
