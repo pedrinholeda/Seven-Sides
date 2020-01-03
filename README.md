@@ -12,8 +12,8 @@
 
 ## Tela Inicial
 
-![](./capturas/cap01.png)
+![](./Capturas/cap01.png)
 
 ## Tela do Game
 
-![](./capturas/cap02.png)
+![](./Capturas/cap02.png)
