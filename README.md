@@ -17,3 +17,7 @@
 ## Tela do Game
 
 ![](./Capturas/cap02.png)
+
+## Licença
+
+[MIT](LICENSE)
